@@ -4,7 +4,17 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"os"
 )
+
+func getFile(fileName string) (*os.File, error) {
+	file, err := os.Open(fileName)
+	if err != nil {
+		fmt.Println("Error: ", err)
+		return nil, err
+	}
+	return file, nil
+}
 
 func presentPage(fileName string, w http.ResponseWriter, r *http.Request) {
 	page, err := template.ParseFiles(fileName)
