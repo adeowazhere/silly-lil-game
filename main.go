@@ -6,8 +6,7 @@ import (
 	"net/http"
 )
 
-func startPage(w http.ResponseWriter, r *http.Request) {
-	var fileName = "start.html"
+func presentPage(fileName string, w http.ResponseWriter, r *http.Request) {
 	page, err := template.ParseFiles(fileName)
 	if err != nil {
 		fmt.Println("Error: ", err)
@@ -24,18 +23,9 @@ func startPage(w http.ResponseWriter, r *http.Request) {
 func handler(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 	case "/start":
-		startPage(w, r)
+		presentPage("start.html", w, r)
 	default:
-		var fileName = "index.html"
-		page, err := template.ParseFiles(fileName)
-		if err != nil {
-			fmt.Println("Error: ", err)
-		}
-
-		err = page.ExecuteTemplate(w, fileName, nil)
-		if err != nil {
-			fmt.Println("Error: ", err)
-		}
+		presentPage("index.html", w, r)
 	}
 }
 
