@@ -38,17 +38,30 @@ body {
 }
 
 p {
+    display: none;
+    margin: 0 auto;
+
     text-align: center;
     font-size: 1.25em;
     font-family: 'Courier New', Courier, monospace;
 
-    color: var(--primary-colour);
-
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
     letter-spacing: .45em;
+    white-space: nowrap;
+
+    color: var(--primary-colour);
+}
+
+.text-typing {
+    display: block;
+    overflow: hidden;
+
     animation: typing 1.5s steps(40, end), crt-text 0.5s infinite;
+}
+
+.text-typed {
+    display: block;
+    overflow: visible;
+    animation: crt-text 0.5s infinite;
 }
 
 p::before {
