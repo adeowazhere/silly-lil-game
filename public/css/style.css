@@ -37,6 +37,23 @@ body {
     background-color: var(--seondary-colour);
 }
 
+body::before {
+    content: "";
+    display: block;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-image: linear-gradient(rgba(20, 20, 20, 0) 66%, rgba(0, 0, 0, 0.15) 33%);
+    background-size: 100% 2px, 3px 100%;
+    
+    z-index: 999;
+    pointer-events: none;
+}
+
 p {
     display: none;
     margin: 0 auto;
